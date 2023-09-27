@@ -3,7 +3,6 @@
 Task: 0. Log Parsing
 File: 0x06-log_parsing/0-stats.py
 """
-from sys import stdin
 import sys
 
 
