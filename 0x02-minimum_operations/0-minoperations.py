@@ -19,20 +19,10 @@ def minOperations(n):
     if n <= 1:
         return 0
     
-    #initialize an array to store the minimum operations required for each position
-    dp = [0] * (n + 1)
-      
-    for i in range(2, n + 1):
-         dp[i] = float('inf')  # Initialize to positive infinity
-    for j in range(1, i):
-            if i % j == 0:
-                dp[i] = min(dp[i], dp[j] + i // j)
-                
-    return dp[n] if dp[n] != float("inf") else 0
+   
+    # Find smallest prime factors
+    for i in range(2, int((n/2)+1)):
+        if n % i == 0:
+            return minOperations(int(n / i)) + i
 
-if __name__ == "__main__":
-    n = 4
-    print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
-
-    n = 12
-    print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+    return n
